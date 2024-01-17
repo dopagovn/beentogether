@@ -324,7 +324,9 @@
       else document.addEventListener("DOMContentLoaded", init, false);
     </script>
     <script>
-      var startDate = new Date("2024-01-01"); // Thay đổi ngày bắt đầu quen
+      var startDate = new Date("2024-01-01T00:00:00+07:00");
+
+
 
       var updateDaysCounter = function () {
         var currentDate = new Date();
@@ -373,7 +375,7 @@
 
       updateColor(); // Bắt đầu hiệu ứng chạy màu
 
-      function changeTitle(){
+      function changeTitle() {
         document.title = "❤️ Yeu em nhieu vo lo ❤️";
       }
 
