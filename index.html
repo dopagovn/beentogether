@@ -10,6 +10,7 @@
       body {
         font-family: "Roboto", sans-serif;
       }
+
       canvas {
         position: absolute;
         left: 0;
@@ -52,6 +53,65 @@
         animation: gradientMotion 10s linear infinite;
       }
 
+      .custom-btn {
+        position: absolute;
+        background: none;
+        border: 2px solid;
+        font: inherit;
+        line-height: 1;
+        margin: 0.5em;
+        padding: 1em 2em;
+        bottom: 30px;
+        margin: auto;
+        cursor: pointer;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100px;
+      }
+      .custom-btn:hover,
+      .custom-btn:hover:focus {
+        -webkit-animation: pulse 1s;
+        animation: pulse 1s;
+        box-shadow: 0 0 0 2em transparent;
+      }
+
+      @-webkit-keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 var(--hover);
+        }
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 var(--hover);
+        }
+      }
+
+      .custom-btn {
+        --color: #ef6eae;
+        --hover: #ef8f6e;
+      }
+
+      .custom-btn {
+        color: var(--color);
+        transition: 0.25s;
+      }
+      .custom-btn:hover,
+      .custom-btn:focus {
+        border-color: var(--hover);
+        color: #fff;
+      }
+
+      audio {
+        display: none; /* Ẩn thanh play mặc định */
+      }
+      /* Ẩn thanh tua nhạc */
+      audio::-webkit-media-controls-timeline {
+        display: none;
+      }
+
       @keyframes gradientMotion {
         0% {
           background-position: 100% 50%;
@@ -67,16 +127,17 @@
         }
       }
       @media only screen and (max-width: 600px) {
-    /* Các quy tắc CSS cho màn hình có độ rộng tối đa là 600px */
-    #leftName, #rightName {
-        font-size: 18px;
-    }
+        /* Các quy tắc CSS cho màn hình có độ rộng tối đa là 600px */
+        #leftName,
+        #rightName {
+          font-size: 18px;
+        }
 
-    #daysCounter {
-        font-size: 12px;
-        bottom: 60px;
-    }
-}
+        #daysCounter {
+          font-size: 12px;
+          bottom: 60px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -84,6 +145,12 @@
     <div id="daysCounter">Days Together: <span id="daysCount"></span></div>
     <div id="leftName">Quoc Thinh</div>
     <div id="rightName">Bao Ngoc</div>
+
+    <audio id="backgroundMusic" controls>
+      <source src="tiptoe.mp3" type="audio/mpeg" />
+    </audio>
+
+    <button class="custom-btn" onclick="playAudio()">Play</button>
 
     <script>
       window.requestAnimationFrame =
@@ -296,6 +363,13 @@
         leftName.style.transition = "ease-in-out 10s";
         setTimeout(updateColor, 10000); // Cập nhật màu mỗi 2 giây
       };
+
+      function playAudio() {
+        var audio = document.getElementById("backgroundMusic");
+        audio.play();
+
+        document.getElementsByClassName("custom-btn")[0].style.display = "none";
+      }
 
       updateColor(); // Bắt đầu hiệu ứng chạy màu
     </script>
