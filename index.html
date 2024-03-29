@@ -2,391 +2,85 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Thinh ❤️ Ngoc</title>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
-      body {
-        font-family: "Roboto", sans-serif;
-      }
-
-      canvas {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.2);
-      }
-      #daysCounter {
-        position: absolute;
-        bottom: 120px;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 18px;
-        color: rgb(197, 197, 197);
-        font-size: 30px;
-        font-weight: 900;
-      }
-      #leftName,
-      #rightName {
-        position: absolute;
-        font-size: 40px;
-        font-weight: 800;
-      }
-
-      #leftName {
-        top: 50%;
-        left: 300px;
-        position: absolute;
-        overflow: hidden;
-        color: transparent;
-        animation: gradientMotion 10s linear infinite;
-      }
-      #rightName {
-        top: 50%;
-        right: 300px;
-        position: absolute;
-        overflow: hidden;
-        color: transparent;
-        animation: gradientMotion 10s linear infinite;
-      }
-
-      .custom-btn {
-        position: absolute;
-        background: none;
-        border: 2px solid;
-        font: inherit;
-        line-height: 1;
-        margin: 0.5em;
-        padding: 1em 2em;
-        bottom: 30px;
-        margin: auto;
-        cursor: pointer;
-        left: 0;
-        right: 0;
-        margin-left: auto;
-        margin-right: auto;
-        width: 100px;
-      }
-      .custom-btn:hover,
-      .custom-btn:hover:focus {
-        -webkit-animation: pulse 1s;
-        animation: pulse 1s;
-        box-shadow: 0 0 0 2em transparent;
-      }
-
-      @-webkit-keyframes pulse {
-        0% {
-          box-shadow: 0 0 0 0 var(--hover);
-        }
-      }
-
-      @keyframes pulse {
-        0% {
-          box-shadow: 0 0 0 0 var(--hover);
-        }
-      }
-
-      .custom-btn {
-        --color: #ef6eae;
-        --hover: #ef8f6e;
-      }
-
-      .custom-btn {
-        color: var(--color);
-        transition: 0.25s;
-      }
-      .custom-btn:hover,
-      .custom-btn:focus {
-        border-color: var(--hover);
-        color: #fff;
-      }
-
-      audio {
-        display: none; /* Ẩn thanh play mặc định */
-      }
-      /* Ẩn thanh tua nhạc */
-      audio::-webkit-media-controls-timeline {
-        display: none;
-      }
-
-      @keyframes gradientMotion {
-        0% {
-          background-position: 100% 50%;
-          color: hsla(0, 100%, 50%, 0.8);
-        }
-        50% {
-          background-position: 0% 50%;
-          color: hsla(180, 100%, 50%, 0.8);
-        }
-        100% {
-          background-position: 100% 50%;
-          color: hsla(0, 100%, 50%, 0.8);
-        }
-      }
-      @media only screen and (max-width: 600px) {
-        /* Các quy tắc CSS cho màn hình có độ rộng tối đa là 600px */
-        #leftName,
-        #rightName {
-          font-size: 18px;
-        }
-
-        #daysCounter {
-          font-size: 12px;
-          bottom: 60px;
-        }
-      }
-    </style>
+    <title>For you!</title>
+    <!-- Jquery -->
+    <script src="./js/jquery.min.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/index.css" />
   </head>
   <body>
-    <img
-      id="backgroundImage"
-      src="wallpaper.jpg"
-      alt="Background Image"
-      style="display: none"
-    />
-    <canvas id="heart"></canvas>
-    <div id="daysCounter">Days Together: <span id="daysCount"></span></div>
-    <div id="leftName">Quoc Thinh</div>
-    <div id="rightName">Bao Ngoc</div>
+    <!-- Login Page -->
+    <div class="container">
+      <!-- Login -->
+      <div class="login_content">
+        <h4 class="title">Hãy nhập sinh nhật bên dưới!</h4>
+        <input
+          type="text"
+          name="text"
+          class="input"
+          placeholder="VD: 01112001"
+        />
+        <!-- Button -->
+        <button class="btn" type="button">
+          <div class="wrapper">
+            <p class="text">Thử ngay</p>
 
-    <audio id="backgroundMusic" controls>
-      <source src="athousandyears.mp3" type="audio/mpeg" />
-    </audio>
+            <div class="flower flower1">
+              <div class="petal one"></div>
+              <div class="petal two"></div>
+              <div class="petal three"></div>
+              <div class="petal four"></div>
+            </div>
+            <div class="flower flower2">
+              <div class="petal one"></div>
+              <div class="petal two"></div>
+              <div class="petal three"></div>
+              <div class="petal four"></div>
+            </div>
+            <div class="flower flower3">
+              <div class="petal one"></div>
+              <div class="petal two"></div>
+              <div class="petal three"></div>
+              <div class="petal four"></div>
+            </div>
+            <div class="flower flower4">
+              <div class="petal one"></div>
+              <div class="petal two"></div>
+              <div class="petal three"></div>
+              <div class="petal four"></div>
+            </div>
+            <div class="flower flower5">
+              <div class="petal one"></div>
+              <div class="petal two"></div>
+              <div class="petal three"></div>
+              <div class="petal four"></div>
+            </div>
+            <div class="flower flower6">
+              <div class="petal one"></div>
+              <div class="petal two"></div>
+              <div class="petal three"></div>
+              <div class="petal four"></div>
+            </div>
+          </div>
+        </button>
+        <!-- Music -->
+        <audio controls id="myMusic">
+          <source src="./athousandyears.mp3" type="audio/mpeg" />
+        </audio>
+      </div>
+      <!-- Messages content -->
+      <div class="message1">
+        <h1 class="hello">Hi Xoài! 🥭</h1>
+        <div class="text1">Có vài điều anh muốn nói với em!</div>
+        <div class="text2">Mong em kiên nhẫn với anh nha ❤️!...</div>
 
-    <button class="custom-btn" onclick="playAudio()">Play</button>
-
-    <script>
-      window.requestAnimationFrame =
-        window.__requestAnimationFrame ||
-        window.requestAnimationFrame ||
-        window.webkitRequestAnimationFrame ||
-        window.mozRequestAnimationFrame ||
-        window.oRequestAnimationFrame ||
-        window.msRequestAnimationFrame ||
-        (function () {
-          return function (callback, element) {
-            var lastTime = element.__lastTime;
-            if (lastTime === undefined) {
-              lastTime = 0;
-            }
-            var currTime = Date.now();
-            var timeToCall = Math.max(1, 33 - (currTime - lastTime));
-            window.setTimeout(callback, timeToCall);
-            element.__lastTime = currTime + timeToCall;
-          };
-        })();
-      window.isDevice =
-        /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(
-          (
-            navigator.userAgent ||
-            navigator.vendor ||
-            window.opera
-          ).toLowerCase()
-        );
-      var loaded = false;
-
-      var init = function () {
-        if (loaded) return;
-        loaded = true;
-        var mobile = window.isDevice;
-        var koef = mobile ? 0.5 : 1;
-        var canvas = document.getElementById("heart");
-        var ctx = canvas.getContext("2d");
-        var width = (canvas.width = koef * innerWidth);
-        var height = (canvas.height = koef * innerHeight);
-        var rand = Math.random;
-        ctx.fillStyle = "rgba(0,0,0,0.2)";
-        ctx.fillRect(0, 0, width, height);
-
-        var heartPosition = function (rad) {
-          //return [Math.sin(rad), Math.cos(rad)];
-          return [
-            Math.pow(Math.sin(rad), 3),
-            -(
-              15 * Math.cos(rad) -
-              5 * Math.cos(2 * rad) -
-              2 * Math.cos(3 * rad) -
-              Math.cos(4 * rad)
-            ),
-          ];
-        };
-        var scaleAndTranslate = function (pos, sx, sy, dx, dy) {
-          return [dx + pos[0] * sx, dy + pos[1] * sy];
-        };
-
-        window.addEventListener("resize", function () {
-          width = canvas.width = koef * innerWidth;
-          height = canvas.height = koef * innerHeight;
-          ctx.fillStyle = "rgba(0,0,0,0.2)";
-          ctx.fillRect(0, 0, width, height);
-        });
-
-        var traceCount = mobile ? 20 : 50;
-        var pointsOrigin = [];
-        var i;
-        var dr = mobile ? 0.3 : 0.1;
-        for (i = 0; i < Math.PI * 2; i += dr)
-          pointsOrigin.push(scaleAndTranslate(heartPosition(i), 210, 13, 0, 0));
-        for (i = 0; i < Math.PI * 2; i += dr)
-          pointsOrigin.push(scaleAndTranslate(heartPosition(i), 150, 9, 0, 0));
-        for (i = 0; i < Math.PI * 2; i += dr)
-          pointsOrigin.push(scaleAndTranslate(heartPosition(i), 90, 5, 0, 0));
-        var heartPointsCount = pointsOrigin.length;
-
-        var targetPoints = [];
-        var pulse = function (kx, ky) {
-          for (i = 0; i < pointsOrigin.length; i++) {
-            targetPoints[i] = [];
-            targetPoints[i][0] = kx * pointsOrigin[i][0] + width / 2;
-            targetPoints[i][1] = ky * pointsOrigin[i][1] + height / 2;
-          }
-        };
-
-        var e = [];
-        for (i = 0; i < heartPointsCount; i++) {
-          var x = rand() * width;
-          var y = rand() * height;
-          e[i] = {
-            vx: 0,
-            vy: 0,
-            R: 2,
-            speed: rand() + 5,
-            q: ~~(rand() * heartPointsCount),
-            D: 2 * (i % 2) - 1,
-            force: 0.2 * rand() + 0.7,
-            f:
-              "hsla(300," +
-              ~~(40 * rand() + 60) +
-              "%," +
-              ~~(60 * rand() + 20) +
-              "%,.3)",
-            trace: [],
-          };
-          for (var k = 0; k < traceCount; k++) e[i].trace[k] = { x: x, y: y };
-        }
-
-        var config = {
-          traceK: 0.4,
-          timeDelta: 0.01,
-        };
-
-        var time = 0;
-        var loop = function () {
-          var n = -Math.cos(time);
-          pulse((1 + n) * 0.5, (1 + n) * 0.5);
-          time +=
-            (Math.sin(time) < 0 ? 9 : n > 0.8 ? 0.2 : 1) * config.timeDelta;
-          // background
-          ctx.fillStyle = "rgba(0,0,0,0.2)";
-          // end background
-          ctx.fillRect(0, 0, width, height);
-          for (i = e.length; i--; ) {
-            var u = e[i];
-            var q = targetPoints[u.q];
-            var dx = u.trace[0].x - q[0];
-            var dy = u.trace[0].y - q[1];
-            var length = Math.sqrt(dx * dx + dy * dy);
-            if (10 > length) {
-              if (0.95 < rand()) {
-                u.q = ~~(rand() * heartPointsCount);
-              } else {
-                if (0.99 < rand()) {
-                  u.D *= -1;
-                }
-                u.q += u.D;
-                u.q %= heartPointsCount;
-                if (0 > u.q) {
-                  u.q += heartPointsCount;
-                }
-              }
-            }
-            u.vx += (-dx / length) * u.speed;
-            u.vy += (-dy / length) * u.speed;
-            u.trace[0].x += u.vx;
-            u.trace[0].y += u.vy;
-            u.vx *= u.force;
-            u.vy *= u.force;
-            for (k = 0; k < u.trace.length - 1; ) {
-              var T = u.trace[k];
-              var N = u.trace[++k];
-              N.x -= config.traceK * (N.x - T.x);
-              N.y -= config.traceK * (N.y - T.y);
-            }
-            ctx.fillStyle = u.f;
-            for (k = 0; k < u.trace.length; k++) {
-              ctx.fillRect(u.trace[k].x, u.trace[k].y, 1, 1);
-            }
-          }
-          //ctx.fillStyle = "rgba(255,255,255,1)";
-          //for (i = u.trace.length; i--;) ctx.fillRect(targetPoints[i][0], targetPoints[i][1], 2, 2);
-
-          window.requestAnimationFrame(loop, canvas);
-        };
-        loop();
-      };
-
-      var s = document.readyState;
-      if (s === "complete" || s === "loaded" || s === "interactive") init();
-      else document.addEventListener("DOMContentLoaded", init, false);
-    </script>
-    <script>
-      var startDate = new Date("2024-01-01T00:00:00+07:00");
-
-      var updateDaysCounter = function () {
-        var currentDate = new Date();
-        var timeDiff = currentDate.getTime() - startDate.getTime();
-        var daysCount = Math.floor(timeDiff / (1000 * 3600 * 24));
-
-        document.getElementById("daysCount").innerText = daysCount;
-      };
-
-      setInterval(updateDaysCounter, 1000); // Cập nhật mỗi giây
-
-      var randomGradientColor = function () {
-        var hue1 = Math.floor(Math.random() * 360);
-        var hue2 = (hue1 + 180) % 360;
-
-        return (
-          "linear-gradient(90deg, hsl(" +
-          hue1 +
-          ", 100%, 50%) 0%, hsl(" +
-          hue2 +
-          ", 100%, 50%) 100%)"
-        );
-      };
-
-      var updateColor = function () {
-        var rightName = document.getElementById("rightName");
-        var leftName = document.getElementById("leftName");
-        rightName.style.background = randomGradientColor();
-        rightName.style.webkitBackgroundClip = "text";
-        rightName.style.color = "transparent";
-        rightName.style.transition = "ease-in-out 10s";
-
-        leftName.style.background = randomGradientColor();
-        leftName.style.webkitBackgroundClip = "text";
-        leftName.style.color = "transparent";
-        leftName.style.transition = "ease-in-out 10s";
-        setTimeout(updateColor, 10000); // Cập nhật màu mỗi 2 giây
-      };
-
-      function playAudio() {
-        var audio = document.getElementById("backgroundMusic");
-        audio.play();
-
-        document.getElementsByClassName("custom-btn")[0].style.display = "none";
-      }
-
-      updateColor(); // Bắt đầu hiệu ứng chạy màu
-
-      function changeTitle() {
-        document.title = "❤️ Yeu em nhieu vo lo ❤️";
-      }
-
-      setTimeout(changeTitle, 3000);
-    </script>
+        <div class="button_option">
+          <button class="btn_agree">Đồng ý!</button>
+          <button class="btn_agree">Rất đồng ý!</button>
+        </div>
+      </div>
+    </div>
+    <script src="./js/index.js"></script>
   </body>
 </html>

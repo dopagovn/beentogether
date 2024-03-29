@@ -1,0 +1,392 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: rgb(238, 28, 46);
+    background: linear-gradient(90deg, rgba(238, 28, 46, 1) 0%, rgba(249, 141, 244, 1) 55%, rgba(243, 57, 255, 0.7455575980392157) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    height: 100vh;
+}
+
+.container {
+    width: 80%;
+    height: 720px;
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.43);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.login_content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+
+
+/* Animation */
+
+.login_content.hidden {
+    opacity: 0;
+}
+
+.title {
+    margin: 30px 0;
+}
+
+.input {
+    margin: 30px 0;
+    background-color: #383838;
+    border: 1ex solid none;
+    border-top-width: 1.7em;
+    margin: 0;
+    padding: 0;
+    color: #383838;
+    word-wrap: break-word;
+    outline: 7px solid #383838;
+    height: 30px;
+    font-size: 17px;
+    text-align: center;
+    transition: all .5s;
+    max-width: 790px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.input:hover {
+    border-top-width: 0.2em;
+    background-color: #f1e8e8;
+}
+
+.input:focus {
+    border-top-width: 0.2em;
+    background-color: #f1e8e8;
+}
+
+/* Button */
+
+.btn {
+    margin: 30px 0;
+    height: 4em;
+    width: 12em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 0px solid black;
+    cursor: pointer;
+}
+
+.wrapper {
+    height: 2em;
+    width: 8em;
+    position: relative;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text {
+    font-size: 17px;
+    z-index: 1;
+    color: #000;
+    padding: 4px 12px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.7);
+    transition: all 0.5s ease;
+}
+
+.flower {
+    display: grid;
+    grid-template-columns: 1em 1em;
+    position: absolute;
+    transition: grid-template-columns 0.8s ease;
+}
+
+.flower1 {
+    top: -12px;
+    left: -13px;
+    transform: rotate(5deg);
+}
+
+.flower2 {
+    bottom: -5px;
+    left: 8px;
+    transform: rotate(35deg);
+}
+
+.flower3 {
+    bottom: -15px;
+    transform: rotate(0deg);
+}
+
+.flower4 {
+    top: -14px;
+    transform: rotate(15deg);
+}
+
+.flower5 {
+    right: 11px;
+    top: -3px;
+    transform: rotate(25deg);
+}
+
+.flower6 {
+    right: -15px;
+    bottom: -15px;
+    transform: rotate(30deg);
+}
+
+.petal {
+    height: 1em;
+    width: 1em;
+    border-radius: 40% 70% / 7% 90%;
+    background: linear-gradient(#07a6d7, #93e0ee);
+    border: 0.5px solid #96d1ec;
+    z-index: 0;
+    transition: width 0.8s ease, height 0.8s ease;
+}
+
+.two {
+    transform: rotate(90deg);
+}
+
+.three {
+    transform: rotate(270deg);
+}
+
+.four {
+    transform: rotate(180deg);
+}
+
+.btn:hover .petal {
+    background: linear-gradient(#0761d7, #93bdee);
+    border: 0.5px solid #96b4ec;
+}
+
+.btn:hover .flower {
+    grid-template-columns: 1.5em 1.5em;
+}
+
+.btn:hover .flower .petal {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.btn:hover .text {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.btn:hover div.flower1 {
+    animation: 15s linear 0s normal none infinite running flower1;
+}
+
+@keyframes flower1 {
+    0% {
+        transform: rotate(5deg);
+    }
+
+    100% {
+        transform: rotate(365deg);
+    }
+}
+
+.btn:hover div.flower2 {
+    animation: 13s linear 1s normal none infinite running flower2;
+}
+
+@keyframes flower2 {
+    0% {
+        transform: rotate(35deg);
+    }
+
+    100% {
+        transform: rotate(-325deg);
+    }
+}
+
+.btn:hover div.flower3 {
+    animation: 16s linear 1s normal none infinite running flower3;
+}
+
+@keyframes flower3 {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.btn:hover div.flower4 {
+    animation: 17s linear 1s normal none infinite running flower4;
+}
+
+@keyframes flower4 {
+    0% {
+        transform: rotate(15deg);
+    }
+
+    100% {
+        transform: rotate(375deg);
+    }
+}
+
+.btn:hover div.flower5 {
+    animation: 20s linear 1s normal none infinite running flower5;
+}
+
+@keyframes flower5 {
+    0% {
+        transform: rotate(25deg);
+    }
+
+    100% {
+        transform: rotate(-335deg);
+    }
+}
+
+.btn:hover div.flower6 {
+    animation: 15s linear 1s normal none infinite running flower6;
+}
+
+@keyframes flower6 {
+    0% {
+        transform: rotate(30deg);
+    }
+
+    100% {
+        transform: rotate(390deg);
+    }
+}
+
+#myMusic {
+    display: none;
+}
+
+/* Message 1 */
+.message1 {
+    display: none;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    width: 100%;
+}
+
+.message1.show {
+    display: block;
+    opacity: 1;
+}
+
+.message1 .hello {
+    color: white;
+    text-align: center;
+    font: bold 200% Consolas, Monaco, monospace;
+}
+
+/* Loader Message */
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+}
+
+@keyframes blink-caret {
+
+    50% {
+        border-color: transparent;
+    }
+
+    to {
+        border-right: none;
+    }
+}
+
+/* When you change the amount of characters in the h1, you have to change 
+  the with: 14ch and  steps(14, end), if there is 14 characters, put 14, 
+  if there is 20 put 20 */
+.text1 {
+    font: bold 10vw Consolas, Monaco, monospace;
+    width: 32ch;
+    margin: 2em auto;
+    white-space: nowrap;
+    overflow: hidden;
+    color: white;
+    -webkit-animation: typing 5s steps(32, end),
+        blink-caret .5s step-end;
+    text-align: center;
+    font-size: calc(1vw + 1vh + 1vmin);
+}
+
+.text2 {
+    display: none;
+    font: bold 10vw Consolas, Monaco, monospace;
+
+    width: 32ch;
+    margin: 2em auto;
+    white-space: nowrap;
+    overflow: hidden;
+    color: white;
+    -webkit-animation: typing 5s steps(32, end),
+        blink-caret .5s step-end;
+    text-align: center;
+    font-size: calc(1vw + 1vh + 1vmin);
+}
+
+/* Button option */
+
+.button_option {
+
+    width: 100%;
+    height: 120px;
+    display: none;
+    opacity: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn_agree {
+    padding: 10px 10px;
+    border: none;
+    font-size: 17px;
+    color: #fff;
+    border-radius: 7px;
+    letter-spacing: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: 0.5s;
+    transition-property: box-shadow;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.btn_agree {
+    background: rgb(251, 0, 255);
+    box-shadow: 0 0 25px rgb(255, 9, 194);
+}
+
+.btn_agree:hover {
+    box-shadow: 0 0 5px rgb(255, 0, 242),
+        0 0 25px rgb(255, 0, 128),
+        0 0 50px rgb(239, 30, 82),
+        0 0 100px rgb(150, 7, 222);
+}
