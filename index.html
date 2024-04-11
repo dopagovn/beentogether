@@ -1,145 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>For you!</title>
-    <!-- Jquery -->
-    <script src="./js/jquery.min.js"></script>
-    <!-- CSS -->
-    <link rel="stylesheet" href="./css/index.css" />
-  </head>
-  <body>
-    <!-- Login Page -->
-    <div class="container">
-      <!-- Login -->
-      <div class="login_content">
-        <h4 class="title">Hãy nhập sinh nhật của bạn bên dưới!</h4>
-        <input
-          type="text"
-          name="text"
-          class="input"
-          placeholder="VD: 01112001"
-        />
-        <!-- Button -->
-        <button class="btn" type="button">
-          <div class="wrapper">
-            <p class="text">Thử ngay</p>
 
-            <div class="flower flower1">
-              <div class="petal one"></div>
-              <div class="petal two"></div>
-              <div class="petal three"></div>
-              <div class="petal four"></div>
-            </div>
-            <div class="flower flower2">
-              <div class="petal one"></div>
-              <div class="petal two"></div>
-              <div class="petal three"></div>
-              <div class="petal four"></div>
-            </div>
-            <div class="flower flower3">
-              <div class="petal one"></div>
-              <div class="petal two"></div>
-              <div class="petal three"></div>
-              <div class="petal four"></div>
-            </div>
-            <div class="flower flower4">
-              <div class="petal one"></div>
-              <div class="petal two"></div>
-              <div class="petal three"></div>
-              <div class="petal four"></div>
-            </div>
-            <div class="flower flower5">
-              <div class="petal one"></div>
-              <div class="petal two"></div>
-              <div class="petal three"></div>
-              <div class="petal four"></div>
-            </div>
-            <div class="flower flower6">
-              <div class="petal one"></div>
-              <div class="petal two"></div>
-              <div class="petal three"></div>
-              <div class="petal four"></div>
-            </div>
-          </div>
-        </button>
-        <!-- Music -->
-        <audio controls id="myMusic">
-          <source src="./athousandyears.mp3" type="audio/mpeg" />
-        </audio>
-      </div>
-      <!-- Messages content -->
-      <div class="message1">
-        <h1 class="hello">Hi Xoàiii! 🥭</h1>
-        <div class="text1">Có vài điều anh muốn nói với em</div>
-        <div class="text2">Mong em lắng nghe anh nha!</div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For you!</title>
+  <!-- Javascript -->
+  <script src="./js/jquery.min.js"></script>
+  <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@v0.163.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@v0.163.0/examples/jsm/"
+        }
+      }
+    </script>
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/index.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
 
-        <div class="button_option">
-          <button class="btn_agree">Đồng ý!</button>
-          <button class="btn_agree">Rất đồng ý!</button>
+<body>
+  <!-- something -->
+  <!-- <div class="main">
+    <h1 class="main-hi show">Hi! If you ever have a bad day or something like that, just come here and listen to these
+      songs, this is just for you.</h1>
+
+    <button class="btn-agree show">OK!</button>
+  </div> -->
+  <div class="dashboard show">
+    <div class="dashboard header">
+        <span class="song-title">A song for you</span>
+        <img class="song-image" src="./image/image2.jpg" alt="" />
+
+
+        <div class="music-control">
+          <span id="prev" class="back-btn"><i class="bi bi-skip-backward-fill"></i></span>
+          <span class="pause-play-btn"><i class="bi bi-play-fill"></i></span>
+          <span id="next" class="forward-btn"><i class="bi bi-skip-forward-fill"></i></span>
         </div>
-      </div>
-      <div class="message2">
-        <p class="text-1">
-          Đến bây giờ anh vẫn chưa từ bỏ việc yêu em, anh vẫn rất muốn được tiếp
-          tục yêu em.
-        </p>
-        <p class="text-2">
-          Anh biết khoảng cách 2 đứa mình xa nhau nhưng thực sự anh cảm thấy rất
-          vui bởi vì đã được yêu em trong những tháng qua.
-        </p>
-        <p class="text-3">
-          Mặc dù bây giờ cả 2 không còn kết nối nhau nữa nhưng trong lòng anh
-          vẫn cảm thấy vui vì trong đời này anh đã được gặp em 🥲.
-        </p>
-        <p class="text-4">
-          Từ ngày dừng lại đến giờ, anh không hề tức giận em hay cảm
-          thấy hận, ghét vì bất cứ gì em cả. Anh bảo em block anh là để anh không phải làm phiền
-          em...
-        </p>
-        <p class="text-5">
-          Từ trước đến giờ! Trong đời anh chưa gặp ai mà có thể làm anh vui kể
-          cả khi dừng lại. Không phải vì em tệ hay như nào mà anh cảm thấy vui
-          vì đã có được em trong những tháng qua 🥰.
-        </p>
-        <p class="text-6">
-          Anh biết yêu xa rất khó khăn hơn so với em nghĩ. Nhưng cũng đáng để
-          trải nghiệm và xem nó như là thử thách mà.
-        </p>
-        <p class="text-7">
-          Anh từng hứa rằng anh sẽ ra cùng em. Anh vẫn sẽ giữ lời. Anh muốn bắt
-          đầu một cuộc sống mới ở Hà Nội cơ. Nếu có em nữa thì sẽ ý nghĩa hơn
-          nhiều!
-        </p>
-        <p class="text-8">
-          Từ khi bắt đầu cảm thấy thích em cho đến lúc được yêu em, anh cố gắng
-          mọi thứ để có thể được trở nên tốt hơn. Anh cũng muốn dành tất cả
-          những điều tốt đẹp đó cho mình em thôi.
-        </p>
-        <p class="text-9">
-          Những gì anh nói đều là từ tận trong tim anh ra. Không phải anh văn
-          vở, cũng không phải anh nhờ người khác giúp điều gì cả. Từng đoạn
-          code, từng lời nhắn, từng dòng anh đều cố gắng làm cho có ý nghĩa để
-          nói với em.
-        </p>
-        <div class="ready-to-end">
-          <h3 class="last-mess">Vài điều cuối nữa thôi nha...</h3>
-          <button class="btn_ok">Đồng ý</button>
-        </div>
-      </div>
-      <div class="message3">
-        <img src="./xoaiiu.jpeg" alt="Xoài Xinh" class="myDestiny" />
-        <p class="ending-mess">
-          Mong em bỏ qua mọi thứ ở quá khứ, quên nó đi, hãy coi những gì xảy ra như là thử thách hai đứa mình, anh muốn xin em một cơ hội quay lại để cả 2 đứa mình
-          tiếp tục nữa nha! Anh hứa đến khi ra Hà Nội, anh sẽ bù đắp nhiều điều
-          đặc biệt dành cho em 🥰. Mong em tin tưởng ở anh...</br>
-          Cảm ơn em đã cố gắng xem đến cuối. </br>
-          Anh yêu em! ❤️
-        </p>
-      </div>
+
+        <input type="range" class="time-control" min="0" step="0.5" max="100" value="0" />
+        <audio class="music" src=""></audio>
     </div>
 
-    <script src="./js/index.js"></script>
-  </body>
+    <h3>Continue...</h3>
+  </div>
+  <script src="./js/index.js"></script>
+</body>
+
 </html>

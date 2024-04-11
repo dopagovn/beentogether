@@ -20,160 +20,163 @@ $(document).ready(function () {
   });
 });
 
-const password = "24092006";
-const passwordInput = $(".input");
-const login = $(".btn");
-const loginContent = $(".login_content");
-const message1 = $(".message1");
-const message2 = $(".message2");
-const buttonOption = $(".button_option");
-const agree = $(".btn_agree");
-const ok = $(".btn_ok");
+let isPlay = false;
+var icon = $(".pause-play-btn i");
+const playBtn = $(".pause-play-btn");
+const songTitle = $(".song-title");
+const timeControl = $(".time-control");
+const songImage = $(".song-image");
+const music = $(".music");
+const next = $("#next");
+const prev = $("#prev");
 
-// Các function cho các effect!
+// handle show dashboard
 
-const fadeInAnimation = (element, duration) => {
-  if (!element || !element.length) return;
+// $(".btn-agree").click(() => {
+//   $(".main-hi").removeClass("show");
+//   $(".btn-agree").removeClass("show");
+//   $(".main-hi").addClass("hide");
+//   $(".btn-agree").addClass("hide");
+//   setTimeout(() => {
+//     $(".main-hi").css("display", "none");
+//     $(".btn-agree").css("display", "none");
+//   },1999)
+//   setTimeout(() => {
+//     $(".dashboard").removeClass("hide");
+//     $(".dashboard").addClass("show");
+//     $(".dashboard").css("display", "flex");
+//   },2001)
+// })
 
-  var opacity = 0;
-  const interval = 1000 / 8;
+ 
 
-  if (element.css("opacity") == 0) {
-    setTimeout(() => {
-      element.css("display", "flex");
-      const timer = setInterval(() => {
-        opacity += 0.2;
-        element.css("opacity", opacity);
 
-        if (opacity >= 1) {
-          clearInterval(timer);
-        }
-      }, interval);
-    }, duration);
-  }
-};
 
-const fadeOutAnimation = (element, duration) => {
-  if (!element || !element.length) return;
 
-  var opacity = 1;
-  const interval = 1000 / 8;
 
-  if (element.css("opacity") == 1) {
-    setTimeout(() => {
-      const timer = setInterval(() => {
-        opacity -= 0.2;
-        element.css("opacity", opacity);
 
-        if (opacity <= -1) {
-          clearInterval(timer);
-          element.css("display", "none");
-        }
-      }, interval);
-    }, duration);
-  }
-};
-
-// Khi người tôi yêu click vào các button
-
-$(document).ready(function () {
-  // Click login
-  login.click(function () {
-    if (password === passwordInput.val()) {
-      // alert
-
-      alert("Mình cùng nghe tí nhạc nha ❤️");
-      var audio = document.getElementById("myMusic");
-      audio.play();
-      loginContent.addClass("hidden");
-      setInterval(createHeart, 300);
-
-      setTimeout(function () {
-        loginContent.css("display", "none");
-        fadeInAnimation(message1, 1000);
-
-        setTimeout(function () {
-          $(".text2").css("display", "block");
-        }, 5500);
-
-        if ($(".text2").css("opacity") == 1) {
-          setTimeout(() => {
-            fadeInAnimation(buttonOption, 1000);
-          }, 9500);
-        }
-      }, 1000); // Thời gian chờ của setTimeout
-    } else {
-      alert("Xin lỗi nhưng điều này không dành cho bạn!");
+const app = {
+  listMusic: [
+    {
+      name: 'A song for you',
+      url: '../music/asongforyou.mp3',
+      image: '../image/image1.jpg',
+    },
+    {
+      name: 'A thousand years - ',
+      url: '../music/athousandyears.mp3',
+      image: '../image/image2.jpg',
+    },
+    {
+      name: 'Tip Toe - HYBS',
+      url: '../music/tiptoe.mp3',
+      image: '../image/image3.jpg',
+    },
+    {
+      name: 'Ride - HYBS',
+      url: '../music/ride.mp3',
+      image: '../image/image4.jpg',
     }
-  });
-  // Đồng ý khi xem tiếp
-  agree.click(() => {
-    fadeOutAnimation(message1, 1000);
-    fadeInAnimation(message2, 1000);
+  ],
+  currentIndex: 0,
 
-    let currentTextIndex = 1; // Bắt đầu với text-1
+  defineProperties: function(){
+    Object.defineProperty(this, 'currentSong', {
+      get: function(){
+        return this.listMusic[this.currentIndex];
+      }
+    })
+  },
+  
+  loadCurrentSong: function(){
+    songTitle.text(this.currentSong.name);
+    songImage.attr("src", this.currentSong.image);
+    music.attr("src", this.currentSong.url);
+  },
 
-    const fadeInText = (index) => {
-      fadeInAnimation($(`.text-${index}`), 1000);
-    };
+  render: function(){
+    console.log("app start!");
+  },
 
-    const fadeOutText = (index) => {
-      fadeOutAnimation($(`.text-${index}`), 1000);
-    };
+  nextSong: function(){
+    this.currentIndex++;
+    if(this.currentIndex >= this.listMusic.length){
+      this.currentIndex = 0;
+    }
+    this.loadCurrentSong();
+    music[0].play();
+  },
 
-    const displayDuration = 8000;
+  prevSong: function(){
+    this.currentIndex--;
+    if(this.currentIndex < 0){
+      this.currentIndex = this.listMusic.length - 1;
+    }
+    this.loadCurrentSong();
+    music[0].play();
+  },
 
-    // Lặp lại hiệu ứng
-    const intervalId = setInterval(() => {
-      fadeInText(currentTextIndex);
+  handleEvent: function(){
+    var _this = this;
+    playBtn.click(() => {
+      if(isPlay){
+        music[0].pause();
+      }else{
+        music[0].play();
+      }
+    })
 
-      // Hiển thị văn bản hiện tại trong một khoảng thời gian
-      setTimeout(() => {
-        fadeOutText(currentTextIndex);
-        currentTextIndex++; // Tăng chỉ số văn bản
+    music[0].onplay = function(){
+      isPlay = true;
+      icon.removeClass("bi-play-fill").addClass("bi-pause")
+    }
+    
+    music[0].onpause = function(){
+      isPlay = false;
+      icon.removeClass("bi-pause").addClass("bi-play-fill")
+    }
 
-        // Nếu đã hiển thị hết tất cả các văn bản
-        if (currentTextIndex > 9) {
-          clearInterval(intervalId); // Dừng chu trình lặp lại khi đạt đến text-5
+    music[0].ontimeupdate =  function(){
+      if(music[0].duration){
+        const progress = Math.floor(music[0].currentTime / music[0].duration * 100);
+        timeControl.attr("value", progress);
+      }
+    }
 
-          setTimeout(() => {
-            fadeInAnimation($(".last-mess"), 1000);
-          }, 2000);
-          setTimeout(() => {
-            fadeInAnimation($(".btn_ok"), 2000);
-          }, 1000);
-        }
-      }, displayDuration);
+    timeControl[0].onchange = function(e){
+      const seekTime = music[0].duration / 100 * e.target.value;
+      console.log(seekTime)
+      music[0].currentTime = seekTime;
+    }
 
-      // Chuyển sang văn bản tiếp theo sau mỗi chu kỳ
-    }, displayDuration + 2000); // Tổng thời gian của mỗi chu kỳ là thời gian hiển thị + 2 giây cho hiệu ứng chuyển đổi
-  });
-  ok.click(() => {
-    fadeOutAnimation($(".ready-to-end"), 1000);
-    setTimeout(() => {
-      fadeInAnimation($(".message3"), 1000);
-    }, 2000);
+    next.click(function(){
+      _this.nextSong();
+    })
 
-    setTimeout(() => {
-      fadeInAnimation($(".ending-mess"), 3000);
-    }, 3000);
-  });
-});
+    prev.click(function(){
+      _this.prevSong();
+    })
+  },
 
-// Tạo cơn mưa trái tim
 
-function createHeart() {
-  const heart = document.createElement("div");
-  heart.classList.add("heart");
 
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+  start: function(){
+    // Định nghĩa các thuộc tính object; 
+    this.defineProperties();
 
-  heart.innerText = "💗";
+    // Lắng nghe/xử lý sự kiện
+    this.handleEvent();
 
-  document.body.appendChild(heart);
+    // Load bài hát hiện tại 
+    this.loadCurrentSong();
+    
+    // Render danh sách nhạc
+    this.render();
+    
+  },
 
-  setTimeout(() => {
-    heart.remove();
-  }, 5000);
-}
+
+};
+
+
+app.start();
