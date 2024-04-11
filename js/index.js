@@ -30,23 +30,24 @@ const music = $(".music");
 const next = $("#next");
 const prev = $("#prev");
 
+
 // handle show dashboard
 
-// $(".btn-agree").click(() => {
-//   $(".main-hi").removeClass("show");
-//   $(".btn-agree").removeClass("show");
-//   $(".main-hi").addClass("hide");
-//   $(".btn-agree").addClass("hide");
-//   setTimeout(() => {
-//     $(".main-hi").css("display", "none");
-//     $(".btn-agree").css("display", "none");
-//   },1999)
-//   setTimeout(() => {
-//     $(".dashboard").removeClass("hide");
-//     $(".dashboard").addClass("show");
-//     $(".dashboard").css("display", "flex");
-//   },2001)
-// })
+$(".btn-agree").click(() => {
+  $(".main-hi").removeClass("show");
+  $(".btn-agree").removeClass("show");
+  $(".main-hi").addClass("hide");
+  $(".btn-agree").addClass("hide");
+  setTimeout(() => {
+    $(".main-hi").css("display", "none");
+    $(".btn-agree").css("display", "none");
+  },1999)
+  setTimeout(() => {
+    $(".dashboard").removeClass("hide");
+    $(".dashboard").addClass("show");
+    $(".dashboard").css("display", "flex");
+  },2001)
+})
 
  
 
@@ -105,6 +106,10 @@ const app = {
     }
     this.loadCurrentSong();
     music[0].play();
+    music[0].currentTime = 0;
+    timeControl.attr("defaultValue", 0);
+    timeControl.attr("value", 0);
+    timeControl.attr("valueAsNumber", 0);
   },
 
   prevSong: function(){
@@ -114,6 +119,10 @@ const app = {
     }
     this.loadCurrentSong();
     music[0].play();
+    music[0].currentTime = 0;
+    timeControl.attr("defaultValue", 0);
+    timeControl.attr("value", 0);
+    timeControl.attr("valueAsNumber", 0);
   },
 
   handleEvent: function(){
@@ -140,12 +149,14 @@ const app = {
       if(music[0].duration){
         const progress = Math.floor(music[0].currentTime / music[0].duration * 100);
         timeControl.attr("value", progress);
+        timeControl.attr("defaultValue", progress);
+        timeControl.attr("valueAsNumber", progress);
+        timeControl.val(progress);
       }
     }
 
-    timeControl[0].onchange = function(e){
+    timeControl[0].oninput = function(e){
       const seekTime = music[0].duration / 100 * e.target.value;
-      console.log(seekTime)
       music[0].currentTime = seekTime;
     }
 
