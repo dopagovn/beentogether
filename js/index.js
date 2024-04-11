@@ -58,12 +58,12 @@ const prev = $("#prev");
 const app = {
   listMusic: [
     {
-      name: 'A song for you',
+      name: 'A song for you - Joonil Jung',
       url: '../music/asongforyou.mp3',
       image: '../image/image1.jpg',
     },
     {
-      name: 'A thousand years - ',
+      name: 'A thousand years - Christina Perri',
       url: '../music/athousandyears.mp3',
       image: '../image/image2.jpg',
     },
