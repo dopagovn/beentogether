@@ -50,13 +50,6 @@ $(".btn-agree").click(() => {
   }, 2001)
 })
 
-
-
-
-
-
-
-
 const app = {
   listMusic: [
     {
@@ -88,6 +81,21 @@ const app = {
       name: 'Patient - Charlie Puth',
       url: '../music/patient.mp3',
       image: '../image/image6.webp',
+    },
+    {
+      name: 'Golden hour - JVKE',
+      url: '../music/goldenhour.mp3',
+      image: '../image/image7.jpg',
+    },
+    {
+      name: 'Van Gogh - Dept',
+      url: '../music/vangogh.mp3',
+      image: '../image/image8.jpg',
+    },
+    {
+      name: 'This is what falling in love feels like - Dept',
+      url: '../music/this-is-what-falling-love-feels-like.mp3',
+      image: '../image/image9.jpg',
     },
   ],
   currentIndex: 0,
