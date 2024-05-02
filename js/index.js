@@ -59,7 +59,7 @@ function handleNoClick() {
     resizeYesButton();
     updateNoButtonText();
     if (noCount === MAX_IMAGE) {
-      noCount = 0;
+      play = false;
     }
   }
 }
